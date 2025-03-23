@@ -3,10 +3,27 @@
     margin-bottom: 10px;
 }
 
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.titlepack {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+
+    /* Centrage en haut de l'écran */
+    position: absolute;
+    top: 0;
+    left: 57%;
+    transform: translateX(-57%);
+    margin-top: 20px; /* Optionnel pour ajuster l'espacement */
+}
+
+#packgunfightfivemid{
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
 }
 
 #packrealistefivemid {
@@ -29,7 +46,23 @@
     transition: 0.5s;
 }
 
+#packgunfightfivemid > div {
+    margin-left: 175px;
+    margin-top: 40px;
+    color: var(--text-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 250px;
+    height: 300px;
+    background-color: #0f172a;
+    transition: 0.5s;
+}
+
 #packrealistefivemid > div:hover {
+    transform: scale(1.1);
+}
+
+#packgunfightfivemid > div:hover {
     transform: scale(1.1);
 }
 
@@ -66,6 +99,12 @@
     font-weight: bold;
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.navbar > ul > button:hover {
+    transform: scale(1.1);
+    background-color: #141f38;
 }
 
 .imgnavbar {
@@ -73,4 +112,9 @@
     height: 100px;
     border-radius: 10%;
     margin-top: 40px;
+    transition: 0.5s;
+}
+
+.imgnavbar:hover {
+    transform: scale(1.1);
 }

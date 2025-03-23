@@ -67,6 +67,7 @@
         .btn {
             background-color: var(--button-bg);
             color: var(--text-color);
+            font-weight: bold;
             border: none;
             width: 200px;
             height: 50px;
@@ -80,6 +81,27 @@
      
         .btn:hover {
             background-color: var(--button-hover);
+            transform: scale(1.05);
+        }
+
+        .btnexit
+        {
+            margin-top: 10px;
+            background-color: rgb(196, 1, 1);
+            color: var(--text-color);
+            font-weight: bold;
+            border: none;
+            width: 200px;
+            height: 50px;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-inline: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;  
+        }
+        .btnexit:hover {
+            background-color: red;
             transform: scale(1.05);
         }
     
@@ -113,26 +135,50 @@
 </head>
 <body>
     <h1 id="titlehome">Bienvenue</h1>
+    <iframe class="srcdiscordjoin" id="srcdiscordjoinid" src="https://discord.com/widget?id=1353365571369963643&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <button class="btnexit" id="btnexitid" onclick="widgetdiscordclose()">Exit</button>
     <div class="home" id="homeid">
         <button class="btn" onclick="clearCache()">Clear Cache</button>
         <button class="btn" onclick="clearMods()">Clear Mods</button>
         <button class="btn" id="btnfivemcag" onclick="packFivem()">Pack Fivem</button> <p>
-        <button class="btn" onclick="actionBtn4()">Soon</button>
+        <button class="btn" onclick="widgetdiscord()">Discord</button>
         <button class="btn" onclick="actionBtn5()">Soon</button>
     </div>
-
-    <nav id="navbar" class="navbar">
-        <img class="imgnavbar" src="/img/200w.gif" alt="">
-        <ul>
-            <button class="btnnav">Home</button>
-            <button class="btnnav">Pack Réaliste</button> 
-            <button class="btnnav">Pack GunFight</button>
-            <button class="btnnav">Pack Son</button> 
-            <button class="btnnav">Mods Fivem</button>
-        </ul>
-    </nav>
-
+    <div>
+        <nav id="navbar" class="navbar">
+            <img class="imgnavbar" onclick="returnhome()" src="/img/200w.gif" alt="" >
+            <ul>
+                <button class="btnnav" onclick="returnhome()">Home</button>
+                <button class="btnnav" onclick="packrealistefivem()">Pack Réaliste</button> 
+                <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
+                <button class="btnnav">Pack Son</button> 
+                <button class="btnnav">Mods Fivem</button>
+            </ul>
+            <button class="btnexit" onclick="returnhome()">Exit</button>
+        </nav>
+    </div>
     <div id="packrealistefivemid" class="packrealistefivem">
+        <h1 class="titlepack">Pack Réaliste</h1>
+        <div>
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+        </div>
+        <div>
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
+        </div>
+        <div>
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
+        </div>
+        <div>
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
+        </div>
+    </div>
+
+    <div id="packgunfightfivemid" class="packgunfight">
+        <h1 class="titlepack">Pack GunFight</h1>
         <div>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
@@ -165,7 +211,7 @@
                 <!-- <img class="imgpackrea" src="img/packreaaaaa.png" onclick="packrealistefivem()"> -->
             </div>
 
-            <div id="packfgfid" class="packfgf">
+            <div id="packfgfid" class="packfgf" onclick="packgunfightfivem()">
                 <!-- <img src="img/PackGF.png" alt=""> -->
             </div>
 
@@ -205,28 +251,73 @@
         }
 
         window.onload = function() {
-        var homediv = document.getElementById("divpackid");
-        var packreadiv = document.getElementById("packrealistefivemid");
-        var navbar = document.getElementById("navbar");
+            var homediv = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var navbar = document.getElementById("navbar");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
+            var btnexitid = document.getElementById("btnexitid");
 
-        if (Math.random() < 0) {
-            packreadiv.style.setProperty("display", "block", "important");
-        } else {
-            packreadiv.style.setProperty("display", "none", "important");
-        }
-        
-        if (Math.random() < 0) {
-            homediv.style.setProperty("display", "block", "important");
-        } else {
-            homediv.style.setProperty("display", "none", "important");
+            if (Math.random() < 0) {
+                packreadiv.style.setProperty("display", "block");
+            } else {
+                packreadiv.style.setProperty("display", "none", "important");
+            }
+
+            if (Math.random() < 0) {
+                homediv.style.setProperty("display", "block", "important");
+            } else {
+                homediv.style.setProperty("display", "none", "important");
+            }
+
+            if (Math.random() < 0) {
+                navbar.style.setProperty("display", "block", "important");
+            } else {
+                navbar.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                packgf.style.setProperty("display", "block", "");
+            } else {
+                packgf.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                srcdiscordjoinid.style.setProperty("display", "block", "important");
+            } else {
+                srcdiscordjoinid.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                btnexitid.style.setProperty("display", "block", "important");
+            } else {
+                btnexitid.style.setProperty("display", "none", "important");
+            }
+        };
+
+        function widgetdiscord()
+        {
+            var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
+            var homeid = document.getElementById("homeid");
+            var console = document.getElementById("console");
+            var btnexitid = document.getElementById("btnexitid");
+
+            srcdiscordjoinid.style.display = "block";
+            homeid.style.display = "none";
+            console.style.display = "none";
+            btnexitid.style.display = "block";
+
         }
 
-        if (Math.random() < 0) {
-            navbar.style.setProperty("display", "block", "important");
-        } else {
-            navbar.style.setProperty("display", "none", "important");
+        function widgetdiscordclose()
+        {
+            var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
+            var homeid = document.getElementById("homeid");
+            var console = document.getElementById("console");
+            var btnexitid = document.getElementById("btnexitid");
+
+            srcdiscordjoinid.style.display = "none";
+            homeid.style.display = "block";
+            console.style.display = "block";
+            btnexitid.style.display = "none";
         }
-    };
 
         function packFivem() 
         {
@@ -245,23 +336,26 @@
             })
         }
 
-        function returnhome()
-        {
-            document.getElementById("returnhomeid").addEventListener("click", function(){
-                var homediv = document.getElementById("homeid");
-                var consolediv = document.getElementById("console");
-                var titlehome = document.getElementById("titlehome");
-                var creditid = document.getElementById("creditid");
-                var divpack = document.getElementById("divpackid");
-                var packreadiv = document.getElementById("packrealistefivemid");
+        function returnhome() {
+            var homediv = document.getElementById("homeid");
+            var consolediv = document.getElementById("console");
+            var titlehome = document.getElementById("titlehome");
+            var creditid = document.getElementById("creditid");
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            navbar = document.getElementById("navbar");
 
-                homediv.style.display = "block";
-                consolediv.style.display = "block";
-                titlehome.style.display = "block";
-                creditid.style.display = "block";
-                divpack.style.display = "none";
-                packreadiv.style.display = "none";
-            })
+            homediv.style.display = "block";
+            consolediv.style.display = "block";
+            titlehome.style.display = "block";
+            creditid.style.display = "block";
+            divpack.style.display = "none";
+            navbar.style.display = "none";
+
+            // Utilisation de style.display pour contourner le !important
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
         }
 
         function packrealistefivem()
@@ -269,10 +363,29 @@
         {
             var divpack = document.getElementById("divpackid");
             var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
 
             packreadiv.style.display = "block";
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+
+            packreadiv.style.setProperty("display", "flex", "important");
+            packgf.style.setProperty("display", "none", "important");
+        }
+
+        function packgunfightfivem()
+        {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "flex", "important");
             divpack.style.display = "none";
             homeid.style.display = "none"
             navbar.style.display = "block";
@@ -283,16 +396,6 @@
                 .then(response => updateConsole(response))
                 .catch(err => updateConsole("Erreur : " + err));
         }
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
     </script>
 </body>
 </html>
