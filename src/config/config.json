@@ -1,0 +1,14 @@
+{
+  "option1": {
+    "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": ["", ""]
+  },
+  "option2": {
+    "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": ["", ""]
+  },
+  "option3": {
+    "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": ["", ""]
+  }
+}

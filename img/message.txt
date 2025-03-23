@@ -1,0 +1,128 @@
+#cagpackfivem
+{
+  /* Pas toucher */
+  overflow-y: hidden;
+  overflow: hidden;
+  overflow-x: hidden;
+  /* ------------------ */
+
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 1500px;
+  height: 700px;
+  background-color: var(--console-bg);
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  animation: fadeInUp 1.5s ease;
+  transition: 0.5s;
+}
+
+.imgpackrea
+{
+  max-width: 100%;
+  width: 100%;
+}
+
+.packrea
+{
+  /* Pas toucher */
+  overflow-y: hidden;
+  overflow: hidden;
+  overflow-x: hidden;
+/* ------------------ */
+
+  color: var(--text-color);
+  background-color: #131e36;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+  max-width: 100%;
+  height: 345px;
+  flex-direction: column;
+  transition: 0.5s;
+}
+
+.packfgf
+{
+/* Pas toucher */
+overflow-y: hidden;
+overflow: hidden;
+overflow-x: hidden;
+/* ------------------ */
+
+margin-top: 10px;
+color: var(--text-color);
+background-color: #131e36;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+max-width: 100%;
+height: 345px;
+flex-direction: column;
+transition: 0.5s;
+}
+
+.modsf
+{
+  margin-top: 10px;
+  /* Pas toucher */
+  overflow-y: hidden;
+  overflow: hidden;
+  overflow-x: hidden;
+  /* ------------------ */
+
+  color: var(--text-color);
+  background-color: #131e36;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+  max-width: 100%;
+  height: 345px;
+  flex-direction: column;
+  transition: 0.5s;
+}
+
+.packfson
+{
+  margin-top: 10px;
+  /* Pas toucher */
+  overflow-y: hidden;
+  overflow: hidden;
+  overflow-x: hidden;
+  /* ------------------ */
+
+  color: var(--text-color);
+  background-color: #131e36;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+  max-width: 100%;
+  height: 345px;
+  flex-direction: column;
+  transition: 0.5s;
+}
+
+.packfson:hover
+{
+  height: 330PX;
+}
+
+.packrea:hover
+{
+  height: 330PX;
+}
+
+.packfgf:hover
+{
+  height: 330PX;
+}
+
+.modsf:hover
+{
+  height: 330PX;
+}
