@@ -83,9 +83,6 @@
 .navbar > ul {
     display: flex;
     flex-direction: column;
-    /* position: absolute;
-    top: 50%;
-    transform: translateY(-50%); */
 }
 
 .navbar > ul > button {
