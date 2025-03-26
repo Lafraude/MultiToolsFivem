@@ -172,14 +172,14 @@ html_content = """
                 <button class="btnnav" onclick="returnhome()">Home</button>
                 <button class="btnnav" onclick="packrealistefivem()">Pack Réaliste</button> 
                 <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
-                <button class="btnnav">Pack Son</button> 
-                <button class="btnnav">Mods Fivem</button>
+                <button class="btnnav" onclick="packsonfivem()">Pack Son</button> 
+                <button class="btnnav" onclick="modsfivem()">Mods Fivem</button>
             </ul>
             <button class="btnexit" onclick="returnhome()">Exit</button>
         </nav>
     </div>
     <div id="packrealistefivemid" class="packrealistefivem">
-        <h1 class="titlepack">Pack Réaliste</h1>
+        <h1 class="titlepack">Pack Réaliste</h2>
         <div>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
@@ -199,7 +199,7 @@ html_content = """
     </div>
 
     <div id="packgunfightfivemid" class="packgunfight">
-        <h1 class="titlepack">Pack GunFight</h1>
+        <h2 class="titlepack">Pack GunFight</h2>
         <div>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
@@ -236,15 +236,19 @@ html_content = """
                 <!-- <img src="img/PackGF.png" alt=""> -->
             </div>
 
-            <div id="modsfid" class="modsf">
+            <div id="modsfid" class="modsf" onclick="modsfivem()">
                 <!-- <img src="img/modsfivem.png" alt=""> -->
             </div>
 
-            <div id="packfsonid" class="packfson">
+            <div id="packfsonid" class="packfson" onclick="packsonfivem()">
                 <!-- <img src="img/Packson.png" alt=""> -->
             </div>
         </div>
 
+    </div>
+
+    <div class="commingsoonimg" id="commingsoonid">
+        <img class="comingsoonimg" src="img/commingsoon.png" alt="">
     </div>
 
     <div id="console"></div>
@@ -260,23 +264,23 @@ html_content = """
 
         function clearCache() 
         {
-            updateConsole("Début de la suppression du cache fivem...");
             pywebview.api.clear_cache();
         }
 
         function clearMods() 
         {
-            updateConsole("Mods cleared.");
             pywebview.api.clear_mods();  // Appel à la fonction Python pour supprimer les mods
         }
 
-        window.onload = function() {
+        window.onload = function() 
+        {
             var homediv = document.getElementById("divpackid");
             var packreadiv = document.getElementById("packrealistefivemid");
             var navbar = document.getElementById("navbar");
             var packgf = document.getElementById("packgunfightfivemid");
             var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
             var btnexitid = document.getElementById("btnexitid");
+            var commingsoonid = document.getElementById("commingsoonid");
 
             if (Math.random() < 0) {
                 packreadiv.style.setProperty("display", "block");
@@ -310,6 +314,11 @@ html_content = """
             } else {
                 btnexitid.style.setProperty("display", "none", "important");
             }
+            if (Math.random() < 0) {
+                commingsoonid.style.setProperty("display", "block", "important");
+            } else {
+                commingsoonid.style.setProperty("display", "none", "important");
+            }
         };
 
         function widgetdiscord()
@@ -332,11 +341,13 @@ html_content = """
             var homeid = document.getElementById("homeid");
             var console = document.getElementById("console");
             var btnexitid = document.getElementById("btnexitid");
+            var commingsoonid = document.getElementById("commingsoonid");
 
             srcdiscordjoinid.style.display = "none";
             homeid.style.display = "block";
             console.style.display = "block";
             btnexitid.style.display = "none";
+            commingsoonid.style.display = "none";
         }
 
         function packFivem() 
@@ -353,10 +364,12 @@ html_content = """
                 titlehome.style.display = "none";
                 creditid.style.display = "none";
                 divpack.style.display = "block";
+
             })
         }
 
-        function returnhome() {
+        function returnhome() 
+        {
             var homediv = document.getElementById("homeid");
             var consolediv = document.getElementById("console");
             var titlehome = document.getElementById("titlehome");
@@ -364,7 +377,8 @@ html_content = """
             var divpack = document.getElementById("divpackid");
             var packreadiv = document.getElementById("packrealistefivemid");
             var packgf = document.getElementById("packgunfightfivemid");
-            navbar = document.getElementById("navbar");
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
 
             homediv.style.display = "block";
             consolediv.style.display = "block";
@@ -372,6 +386,7 @@ html_content = """
             creditid.style.display = "block";
             divpack.style.display = "none";
             navbar.style.display = "none";
+            commingsoonid.style.display = "none";
 
             // Utilisation de style.display pour contourner le !important
             packreadiv.style.setProperty("display", "none", "important");
@@ -386,11 +401,13 @@ html_content = """
             var packgf = document.getElementById("packgunfightfivemid");
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
 
             packreadiv.style.display = "block";
             divpack.style.display = "none";
             homeid.style.display = "none"
             navbar.style.display = "block";
+            commingsoonid.style.display = "none";
 
             packreadiv.style.setProperty("display", "flex", "important");
             packgf.style.setProperty("display", "none", "important");
@@ -403,19 +420,57 @@ html_content = """
             var packgf = document.getElementById("packgunfightfivemid");
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
 
             packreadiv.style.setProperty("display", "none", "important");
             packgf.style.setProperty("display", "flex", "important");
             divpack.style.display = "none";
             homeid.style.display = "none"
             navbar.style.display = "block";
+            commingsoonid.style.display = "none";
         }
 
-        function executeOption(option) {
+        function modsfivem()
+        {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "block";
+        }
+
+        function packsonfivem()
+        {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "block";
+        }
+
+        function executeOption(option) 
+        {
             window.pywebview.api.runOption(option)
                 .then(response => updateConsole(response))
                 .catch(err => updateConsole("Erreur : " + err));
         }
+
     </script>
 </body>
 </html>

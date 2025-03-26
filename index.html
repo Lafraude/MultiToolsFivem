@@ -43,7 +43,6 @@
             animation: gradientAnimation 10s ease infinite;
         }
       
-        /* Titre avec animation de slide-in */
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -158,7 +157,7 @@
         </nav>
     </div>
     <div id="packrealistefivemid" class="packrealistefivem">
-        <h1 class="titlepack">Pack Réaliste</h1>
+        <h2 class="titlepack">Pack Réaliste</h2>
         <div>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
@@ -178,7 +177,7 @@
     </div>
 
     <div id="packgunfightfivemid" class="packgunfight">
-        <h1 class="titlepack">Pack GunFight</h1>
+        <h2 class="titlepack">Pack GunFight</h2>
         <div>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
@@ -248,7 +247,7 @@
 
         function clearMods() 
         {
-            pywebview.api.clear_mods();  // Appel à la fonction Python pour supprimer les mods
+            pywebview.api.clear_mods();  // Appel à la fonction Python 
         }
 
         window.onload = function() 
@@ -367,7 +366,6 @@
             navbar.style.display = "none";
             commingsoonid.style.display = "none";
 
-            // Utilisation de style.display pour contourner le !important
             packreadiv.style.setProperty("display", "none", "important");
             packgf.style.setProperty("display", "none", "important");
         }
