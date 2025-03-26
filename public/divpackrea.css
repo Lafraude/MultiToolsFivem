@@ -115,3 +115,23 @@
 .imgnavbar:hover {
     transform: scale(1.1);
 }
+
+@keyframes comingsoon {
+    0% {
+        opacity: 0.65;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.65;
+    }   
+}
+
+.comingsoonimg
+{
+    opacity: 0.65;
+    width: 300px;
+    height: 300px;
+    animation: comingsoon 1.5s infinite;
+}
