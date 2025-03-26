@@ -260,11 +260,13 @@ html_content = """
 
         function clearCache() 
         {
+            updateConsole("Début de la suppression du cache fivem...");
             pywebview.api.clear_cache();
         }
 
         function clearMods() 
         {
+            updateConsole("Mods cleared.");
             pywebview.api.clear_mods();  // Appel à la fonction Python pour supprimer les mods
         }
 

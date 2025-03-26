@@ -152,7 +152,7 @@
                 <button class="btnnav" onclick="packrealistefivem()">Pack Réaliste</button> 
                 <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
                 <button class="btnnav">Pack Son</button> 
-                <button class="btnnav">Mods Fivem</button>
+                <button class="btnnav" onclick="modsfivem()">Mods Fivem</button>
             </ul>
             <button class="btnexit" onclick="returnhome()">Exit</button>
         </nav>
@@ -215,7 +215,7 @@
                 <!-- <img src="img/PackGF.png" alt=""> -->
             </div>
 
-            <div id="modsfid" class="modsf">
+            <div id="modsfid" class="modsf" onclick="modsfivem()">
                 <!-- <img src="img/modsfivem.png" alt=""> -->
             </div>
 
@@ -393,6 +393,21 @@
                 .then(response => updateConsole(response))
                 .catch(err => updateConsole("Erreur : " + err));
         }
+
+        function modsfivem(){
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+        }
+
     </script>
 </body>
 </html>
