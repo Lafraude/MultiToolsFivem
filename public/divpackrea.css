@@ -41,7 +41,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 250px;
-    height: 300px;
+    height: 350px;
     background-color: #0f172a;
     transition: 0.5s;
 }
@@ -53,7 +53,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 250px;
-    height: 300px;
+    height: 350px;
     background-color: #0f172a;
     transition: 0.5s;
 }
@@ -65,6 +65,7 @@
 #packgunfightfivemid > div:hover {
     transform: scale(1.1);
 }
+
 
 .navbar {
     position: fixed;
@@ -134,4 +135,15 @@
     width: 300px;
     height: 300px;
     animation: comingsoon 1.5s infinite;
+}
+
+.item {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+}
+.favori {
+    background-color: yellow;
 }

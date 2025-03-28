@@ -27,6 +27,7 @@ html_content = """
     <title>Multi Tools Fivem</title>
     <link rel="stylesheet" href="public/cagfivem.css">
     <link rel="stylesheet" href="public/divpackrea.css">
+    <link rel="stylesheet" href="public/favoristyle.css">
 
     <style>
         &::-webkit-scrollbar {
@@ -64,7 +65,6 @@ html_content = """
             animation: gradientAnimation 10s ease infinite;
         }
       
-        /* Titre avec animation de slide-in */
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -165,6 +165,7 @@ html_content = """
         <button class="btn" onclick="widgetdiscord()">Discord</button>
         <button class="btn" onclick="actionBtn5()">Soon</button>
     </div>
+
     <div>
         <nav id="navbar" class="navbar">
             <img class="imgnavbar" onclick="returnhome()" src="/img/200w.gif" alt="" >
@@ -174,49 +175,57 @@ html_content = """
                 <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
                 <button class="btnnav" onclick="packsonfivem()">Pack Son</button> 
                 <button class="btnnav" onclick="modsfivem()">Mods Fivem</button>
+                <button class="btnnav" onclick="showFavoris()">Favoris</button>
+                <button class="btnexit" onclick="returnhome()">Exit</button>
             </ul>
-            <button class="btnexit" onclick="returnhome()">Exit</button>
         </nav>
     </div>
     <div id="packrealistefivemid" class="packrealistefivem">
-        <h1 class="titlepack">Pack Réaliste</h2>
-        <div>
+        <h2 class="titlepack">Pack Réaliste</h2>
+        <div data-id="packrealiste-option1">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packrealiste-option2">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packrealiste-option3">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packrealiste-option4">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
     </div>
-
+    
     <div id="packgunfightfivemid" class="packgunfight">
         <h2 class="titlepack">Pack GunFight</h2>
-        <div>
+        <div data-id="packgunfight-option1">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packgunfight-option2">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packgunfight-option3">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packgunfight-option4">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        
     </div>
 
     <div class="container" id="divpackid">
@@ -247,6 +256,13 @@ html_content = """
 
     </div>
 
+    <div id="favoris-section" class="favoris-section" style="display: none;">
+        <h2>Favoris</h2>
+        <button class="btnresetF" onclick="resetFavoris()">Réinitialiser les favoris</button>
+        <ul id="favoris-list"></ul>
+    </div>
+    
+
     <div class="commingsoonimg" id="commingsoonid">
         <img class="comingsoonimg" src="img/commingsoon.png" alt="">
     </div>
@@ -269,7 +285,7 @@ html_content = """
 
         function clearMods() 
         {
-            pywebview.api.clear_mods();  // Appel à la fonction Python pour supprimer les mods
+            pywebview.api.clear_mods();  // Appel à la fonction Python 
         }
 
         window.onload = function() 
@@ -281,6 +297,7 @@ html_content = """
             var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
             var btnexitid = document.getElementById("btnexitid");
             var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
 
             if (Math.random() < 0) {
                 packreadiv.style.setProperty("display", "block");
@@ -318,6 +335,11 @@ html_content = """
                 commingsoonid.style.setProperty("display", "block", "important");
             } else {
                 commingsoonid.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                favorislist.style.setProperty("display", "block", "important");
+            } else {
+                favorislist.style.setProperty("display", "none", "important");
             }
         };
 
@@ -358,12 +380,14 @@ html_content = """
                 var titlehome = document.getElementById("titlehome");
                 var creditid = document.getElementById("creditid");
                 var divpack = document.getElementById("divpackid");
+                var favorislist = document.getElementById("favoris-list");
 
                 homediv.style.display = "none";
                 consolediv.style.display = "none";
                 titlehome.style.display = "none";
                 creditid.style.display = "none";
                 divpack.style.display = "block";
+                favorislist.style.display = "none";
 
             })
         }
@@ -379,6 +403,8 @@ html_content = """
             var packgf = document.getElementById("packgunfightfivemid");
             var navbar = document.getElementById("navbar");
             var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
 
             homediv.style.display = "block";
             consolediv.style.display = "block";
@@ -387,10 +413,13 @@ html_content = """
             divpack.style.display = "none";
             navbar.style.display = "none";
             commingsoonid.style.display = "none";
+            favorislist.style.display = "none";
 
-            // Utilisation de style.display pour contourner le !important
+
             packreadiv.style.setProperty("display", "none", "important");
             packgf.style.setProperty("display", "none", "important");
+            document.getElementById("favoris-section").style.display = "none";
+
         }
 
         function packrealistefivem()
@@ -402,15 +431,19 @@ html_content = """
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
             var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
 
             packreadiv.style.display = "block";
             divpack.style.display = "none";
             homeid.style.display = "none"
             navbar.style.display = "block";
             commingsoonid.style.display = "none";
+            favorislist.style.display = "none";
 
             packreadiv.style.setProperty("display", "flex", "important");
             packgf.style.setProperty("display", "none", "important");
+            document.getElementById("favoris-section").style.display = "none";
         }
 
         function packgunfightfivem()
@@ -421,6 +454,8 @@ html_content = """
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
             var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
 
             packreadiv.style.setProperty("display", "none", "important");
             packgf.style.setProperty("display", "flex", "important");
@@ -428,6 +463,8 @@ html_content = """
             homeid.style.display = "none"
             navbar.style.display = "block";
             commingsoonid.style.display = "none";
+            favorislist.style.display = "none";
+            document.getElementById("favoris-section").style.display = "none";
         }
 
         function modsfivem()
@@ -438,6 +475,8 @@ html_content = """
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
             var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
 
             packreadiv.style.setProperty("display", "none", "important");
             packgf.style.setProperty("display", "none", "important");
@@ -445,6 +484,8 @@ html_content = """
             homeid.style.display = "none"
             navbar.style.display = "block";
             commingsoonid.style.display = "block";
+            favorislist.style.display = "none";
+            document.getElementById("favoris-section").style.display = "none";
         }
 
         function packsonfivem()
@@ -455,6 +496,8 @@ html_content = """
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
             var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
 
             packreadiv.style.setProperty("display", "none", "important");
             packgf.style.setProperty("display", "none", "important");
@@ -462,15 +505,79 @@ html_content = """
             homeid.style.display = "none"
             navbar.style.display = "block";
             commingsoonid.style.display = "block";
+            favorislist.style.display = "none";
+            document.getElementById("favoris-section").style.display = "none";
         }
 
-        function executeOption(option) 
-        {
-            window.pywebview.api.runOption(option)
-                .then(response => updateConsole(response))
-                .catch(err => updateConsole("Erreur : " + err));
+        let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+
+        function toggleFavori(itemId) {
+            if (favoris.includes(itemId)) {
+                favoris = favoris.filter(id => id !== itemId);
+            } else {
+                favoris.push(itemId);
+            }
+            localStorage.setItem("favoris", JSON.stringify(favoris));
+            refreshFavoris();
         }
 
+        function refreshFavoris() {
+            const favorisList = document.getElementById("favoris-list");
+            favorisList.innerHTML = "";
+            favoris.forEach(id => {
+                const li = document.createElement("li");
+                li.textContent = id;
+                favorisList.appendChild(li);
+            });
+        
+            document.querySelectorAll("[data-id]").forEach(item => {
+                const itemId = item.getAttribute("data-id");
+                if (favoris.includes(itemId)) {
+                    item.classList.add("favori");
+                } else {
+                    item.classList.remove("favori");
+                }
+            });
+        }
+
+        function showFavoris() {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
+            packreadiv.style.display = "block";
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "none";
+            favorislist.style.display = "block";
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            document.getElementById("favoris-section").style.display = "flex";
+        }
+
+        function resetFavoris() {
+            favoris = [];
+            localStorage.removeItem("favoris");
+            refreshFavoris();
+            alert("Les favoris ont été réinitialisés !");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("[data-id]").forEach(item => {
+                item.addEventListener("click", () => {
+                    const itemId = item.getAttribute("data-id");
+                    toggleFavori(itemId);
+                });
+        });
+
+        refreshFavoris();
+    });
     </script>
 </body>
 </html>

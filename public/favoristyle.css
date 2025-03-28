@@ -1,0 +1,73 @@
+#favoris-section
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 57%;
+    transform: translateX(-57%);
+    margin-top: 20px; /* Optionnel pour ajuster l'espacement */
+}
+
+#favoris-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Éléments de la liste */
+#favoris-list li {
+    background: var(---background-color);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+    text-align: left;
+}
+
+#favoris-list li:hover {
+    background: var(--button-bg);
+    cursor: pointer;
+}
+
+.btnresetF
+{
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    border: none;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-inline: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btnresetF:hover
+{
+    background-color: #e61919; 
+    transform: scale(1.05); 
+}
+.btnF
+{
+    margin-top: 10px;
+    background-color: #FFC107; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btnF:hover
+{
+    background-color: #FFA000; 
+    transform: scale(1.05); 
+}
