@@ -7,6 +7,7 @@
     <title>Multi Tools Fivem</title>
     <link rel="stylesheet" href="public/cagfivem.css">
     <link rel="stylesheet" href="public/divpackrea.css">
+    <link rel="stylesheet" href="public/favoristyle.css">
 
     <style>
         &::-webkit-scrollbar {
@@ -44,7 +45,6 @@
             animation: gradientAnimation 10s ease infinite;
         }
       
-        /* Titre avec animation de slide-in */
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -68,6 +68,7 @@
         .btn {
             background-color: var(--button-bg);
             color: var(--text-color);
+            font-weight: bold;
             border: none;
             width: 200px;
             height: 50px;
@@ -81,6 +82,27 @@
      
         .btn:hover {
             background-color: var(--button-hover);
+            transform: scale(1.05);
+        }
+
+        .btnexit
+        {
+            margin-top: 10px;
+            background-color: rgb(196, 1, 1);
+            color: var(--text-color);
+            font-weight: bold;
+            border: none;
+            width: 200px;
+            height: 50px;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-inline: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;  
+        }
+        .btnexit:hover {
+            background-color: red;
             transform: scale(1.05);
         }
     
@@ -114,43 +136,76 @@
 </head>
 <body>
     <h1 id="titlehome">Bienvenue</h1>
+    <iframe class="srcdiscordjoin" id="srcdiscordjoinid" src="https://discord.com/widget?id=1353365571369963643&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <button class="btnexit" id="btnexitid" onclick="widgetdiscordclose()">Exit</button>
     <div class="home" id="homeid">
         <button class="btn" onclick="clearCache()">Clear Cache</button>
         <button class="btn" onclick="clearMods()">Clear Mods</button>
         <button class="btn" id="btnfivemcag" onclick="packFivem()">Pack Fivem</button> <p>
-        <button class="btn" onclick="actionBtn4()">Soon</button>
+        <button class="btn" onclick="widgetdiscord()">Discord</button>
         <button class="btn" onclick="actionBtn5()">Soon</button>
     </div>
 
-    <nav id="navbar" class="navbar">
-        <img class="imgnavbar" src="/img/200w.gif" alt="">
-        <ul>
-            <button class="btnnav">Home</button>
-            <button class="btnnav">Pack Réaliste</button> 
-            <button class="btnnav">Pack GunFight</button>
-            <button class="btnnav">Pack Son</button> 
-            <button class="btnnav">Mods Fivem</button>
-        </ul>
-    </nav>
-
+    <div>
+        <nav id="navbar" class="navbar">
+            <img class="imgnavbar" onclick="returnhome()" src="/img/200w.gif" alt="" >
+            <ul>
+                <button class="btnnav" onclick="returnhome()">Home</button>
+                <button class="btnnav" onclick="packrealistefivem()">Pack Réaliste</button> 
+                <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
+                <button class="btnnav" onclick="packsonfivem()">Pack Son</button> 
+                <button class="btnnav" onclick="modsfivem()">Mods Fivem</button>
+                <button class="btnnav" onclick="showFavoris()">Favoris</button>
+                <button class="btnexit" onclick="returnhome()">Exit</button>
+            </ul>
+        </nav>
+    </div>
     <div id="packrealistefivemid" class="packrealistefivem">
-        <div>
+        <h2 class="titlepack">Pack Réaliste</h2>
+        <div data-id="packrealiste-option1">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packrealiste-option2">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packrealiste-option3">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        <div>
+        <div data-id="packrealiste-option4">
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
+            <button class="btnF">Ajouter en favori</button>
         </div>
-        
+    </div>
+    
+    <div id="packgunfightfivemid" class="packgunfight">
+        <h2 class="titlepack">Pack GunFight</h2>
+        <div data-id="packgunfight-option1">
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+            <button class="btnF">Ajouter en favori</button>
+        </div>
+        <div data-id="packgunfight-option2">
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
+            <button class="btnF">Ajouter en favori</button>
+        </div>
+        <div data-id="packgunfight-option3">
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
+            <button class="btnF">Ajouter en favori</button>
+        </div>
+        <div data-id="packgunfight-option4">
+            <img class="packreaimg" src="img/200w.gif" alt="">
+            <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
+            <button class="btnF">Ajouter en favori</button>
+        </div>
     </div>
 
     <div class="container" id="divpackid">
@@ -166,19 +221,30 @@
                 <!-- <img class="imgpackrea" src="img/packreaaaaa.png" onclick="packrealistefivem()"> -->
             </div>
 
-            <div id="packfgfid" class="packfgf">
+            <div id="packfgfid" class="packfgf" onclick="packgunfightfivem()">
                 <!-- <img src="img/PackGF.png" alt=""> -->
             </div>
 
-            <div id="modsfid" class="modsf">
+            <div id="modsfid" class="modsf" onclick="modsfivem()">
                 <!-- <img src="img/modsfivem.png" alt=""> -->
             </div>
 
-            <div id="packfsonid" class="packfson">
+            <div id="packfsonid" class="packfson" onclick="packsonfivem()">
                 <!-- <img src="img/Packson.png" alt=""> -->
             </div>
         </div>
 
+    </div>
+
+    <div id="favoris-section" class="favoris-section" style="display: none;">
+        <h2>Favoris</h2>
+        <button class="btnresetF" onclick="resetFavoris()">Réinitialiser les favoris</button>
+        <ul id="favoris-list"></ul>
+    </div>
+    
+
+    <div class="commingsoonimg" id="commingsoonid">
+        <img class="comingsoonimg" src="img/commingsoon.png" alt="">
     </div>
 
     <div id="console"></div>
@@ -194,40 +260,97 @@
 
         function clearCache() 
         {
-            updateConsole("Début de la suppression du cache fivem...");
             pywebview.api.clear_cache();
-            updateConsole("Appel à la fonction...")
         }
 
         function clearMods() 
         {
-            updateConsole("Mods cleared.");
-            pywebview.api.clear_mods();  // Appel à la fonction Python pour supprimer les mods
+            pywebview.api.clear_mods();  // Appel à la fonction Python 
         }
 
-        window.onload = function() {
-        var homediv = document.getElementById("divpackid");
-        var packreadiv = document.getElementById("packrealistefivemid");
-        var navbar = document.getElementById("navbar");
+        window.onload = function() 
+        {
+            var homediv = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var navbar = document.getElementById("navbar");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
+            var btnexitid = document.getElementById("btnexitid");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
 
-        if (Math.random() < 0) {
-            packreadiv.style.setProperty("display", "block", "important");
-        } else {
-            packreadiv.style.setProperty("display", "none", "important");
-        }
-        
-        if (Math.random() < 0) {
-            homediv.style.setProperty("display", "block", "important");
-        } else {
-            homediv.style.setProperty("display", "none", "important");
+            if (Math.random() < 0) {
+                packreadiv.style.setProperty("display", "block");
+            } else {
+                packreadiv.style.setProperty("display", "none", "important");
+            }
+
+            if (Math.random() < 0) {
+                homediv.style.setProperty("display", "block", "important");
+            } else {
+                homediv.style.setProperty("display", "none", "important");
+            }
+
+            if (Math.random() < 0) {
+                navbar.style.setProperty("display", "block", "important");
+            } else {
+                navbar.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                packgf.style.setProperty("display", "block", "");
+            } else {
+                packgf.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                srcdiscordjoinid.style.setProperty("display", "block", "important");
+            } else {
+                srcdiscordjoinid.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                btnexitid.style.setProperty("display", "block", "important");
+            } else {
+                btnexitid.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                commingsoonid.style.setProperty("display", "block", "important");
+            } else {
+                commingsoonid.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                favorislist.style.setProperty("display", "block", "important");
+            } else {
+                favorislist.style.setProperty("display", "none", "important");
+            }
+        };
+
+        function widgetdiscord()
+        {
+            var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
+            var homeid = document.getElementById("homeid");
+            var console = document.getElementById("console");
+            var btnexitid = document.getElementById("btnexitid");
+
+            srcdiscordjoinid.style.display = "block";
+            homeid.style.display = "none";
+            console.style.display = "none";
+            btnexitid.style.display = "block";
+
         }
 
-        if (Math.random() < 0) {
-            navbar.style.setProperty("display", "block", "important");
-        } else {
-            navbar.style.setProperty("display", "none", "important");
+        function widgetdiscordclose()
+        {
+            var srcdiscordjoinid = document.getElementById("srcdiscordjoinid");
+            var homeid = document.getElementById("homeid");
+            var console = document.getElementById("console");
+            var btnexitid = document.getElementById("btnexitid");
+            var commingsoonid = document.getElementById("commingsoonid");
+
+            srcdiscordjoinid.style.display = "none";
+            homeid.style.display = "block";
+            console.style.display = "block";
+            btnexitid.style.display = "none";
+            commingsoonid.style.display = "none";
         }
-    };
 
         function packFivem() 
         {
@@ -237,32 +360,46 @@
                 var titlehome = document.getElementById("titlehome");
                 var creditid = document.getElementById("creditid");
                 var divpack = document.getElementById("divpackid");
+                var favorislist = document.getElementById("favoris-list");
 
                 homediv.style.display = "none";
                 consolediv.style.display = "none";
                 titlehome.style.display = "none";
                 creditid.style.display = "none";
                 divpack.style.display = "block";
+                favorislist.style.display = "none";
+
             })
         }
 
-        function returnhome()
+        function returnhome() 
         {
-            document.getElementById("returnhomeid").addEventListener("click", function(){
-                var homediv = document.getElementById("homeid");
-                var consolediv = document.getElementById("console");
-                var titlehome = document.getElementById("titlehome");
-                var creditid = document.getElementById("creditid");
-                var divpack = document.getElementById("divpackid");
-                var packreadiv = document.getElementById("packrealistefivemid");
+            var homediv = document.getElementById("homeid");
+            var consolediv = document.getElementById("console");
+            var titlehome = document.getElementById("titlehome");
+            var creditid = document.getElementById("creditid");
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
 
-                homediv.style.display = "block";
-                consolediv.style.display = "block";
-                titlehome.style.display = "block";
-                creditid.style.display = "block";
-                divpack.style.display = "none";
-                packreadiv.style.display = "none";
-            })
+
+            homediv.style.display = "block";
+            consolediv.style.display = "block";
+            titlehome.style.display = "block";
+            creditid.style.display = "block";
+            divpack.style.display = "none";
+            navbar.style.display = "none";
+            commingsoonid.style.display = "none";
+            favorislist.style.display = "none";
+
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            document.getElementById("favoris-section").style.display = "none";
+
         }
 
         function packrealistefivem()
@@ -270,30 +407,157 @@
         {
             var divpack = document.getElementById("divpackid");
             var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
             var homeid = document.getElementById("homeid")
             var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
 
             packreadiv.style.display = "block";
             divpack.style.display = "none";
             homeid.style.display = "none"
             navbar.style.display = "block";
+            commingsoonid.style.display = "none";
+            favorislist.style.display = "none";
+
+            packreadiv.style.setProperty("display", "flex", "important");
+            packgf.style.setProperty("display", "none", "important");
+            document.getElementById("favoris-section").style.display = "none";
         }
 
-        function executeOption(option) {
-            window.pywebview.api.runOption(option)
-                .then(response => updateConsole(response))
-                .catch(err => updateConsole("Erreur : " + err));
+        function packgunfightfivem()
+        {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "flex", "important");
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "none";
+            favorislist.style.display = "none";
+            document.getElementById("favoris-section").style.display = "none";
         }
 
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                navbar.classList.add('scrolled');
+        function modsfivem()
+        {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "block";
+            favorislist.style.display = "none";
+            document.getElementById("favoris-section").style.display = "none";
+        }
+
+        function packsonfivem()
+        {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "block";
+            favorislist.style.display = "none";
+            document.getElementById("favoris-section").style.display = "none";
+        }
+
+        let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+
+        function toggleFavori(itemId) {
+            if (favoris.includes(itemId)) {
+                favoris = favoris.filter(id => id !== itemId);
             } else {
-                navbar.classList.remove('scrolled');
+                favoris.push(itemId);
             }
+            localStorage.setItem("favoris", JSON.stringify(favoris));
+            refreshFavoris();
+        }
+
+        function refreshFavoris() {
+            const favorisList = document.getElementById("favoris-list");
+            favorisList.innerHTML = "";
+            favoris.forEach(id => {
+                const li = document.createElement("li");
+                li.textContent = id;
+                favorisList.appendChild(li);
+            });
+        
+            document.querySelectorAll("[data-id]").forEach(item => {
+                const itemId = item.getAttribute("data-id");
+                if (favoris.includes(itemId)) {
+                    item.classList.add("favori");
+                } else {
+                    item.classList.remove("favori");
+                }
+            });
+        }
+
+        function showFavoris() {
+            var divpack = document.getElementById("divpackid");
+            var packreadiv = document.getElementById("packrealistefivemid");
+            var packgf = document.getElementById("packgunfightfivemid");
+            var homeid = document.getElementById("homeid")
+            var navbar = document.getElementById("navbar");
+            var commingsoonid = document.getElementById("commingsoonid");
+            var favorislist = document.getElementById("favoris-list");
+
+            packreadiv.style.display = "block";
+            divpack.style.display = "none";
+            homeid.style.display = "none"
+            navbar.style.display = "block";
+            commingsoonid.style.display = "none";
+            favorislist.style.display = "block";
+
+            packreadiv.style.setProperty("display", "none", "important");
+            packgf.style.setProperty("display", "none", "important");
+            document.getElementById("favoris-section").style.display = "flex";
+        }
+
+        function resetFavoris() {
+            favoris = [];
+            localStorage.removeItem("favoris");
+            refreshFavoris();
+            alert("Les favoris ont été réinitialisés !");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("[data-id]").forEach(item => {
+                item.addEventListener("click", () => {
+                    const itemId = item.getAttribute("data-id");
+                    toggleFavori(itemId);
+                });
         });
 
+        refreshFavoris();
+    });
     </script>
 </body>
 </html>
