@@ -1,0 +1,22 @@
+.loading {
+    font-size: 100px;
+    display: flex;
+    gap: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(88, 166, 255, 0.8);
+}
+
+.loading span {
+    display: inline-block;
+    animation: blink 1.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.loading span:nth-child(1) { animation-delay: 0s; }
+.loading span:nth-child(2) { animation-delay: 0.2s; }
+.loading span:nth-child(3) { animation-delay: 0.4s; }
