@@ -8,6 +8,7 @@ from win10toast import ToastNotifier
 try:
     from src.clearcache import supprimer_cache  
     from src.deletemods import startclearmods
+    from src.spoofer365j import *
 except Exception as e:
     print(f"Error {e}")
     time.sleep(10)
@@ -194,7 +195,7 @@ html_content = """
         <button class="btn" onclick="clearMods()">Clear Mods</button>
         <button class="btn" id="btnfivemcag" onclick="packFivem()">Pack Fivem</button> <p>
         <button class="btn" onclick="widgetdiscord()">Discord</button>
-        <button class="btn" onclick="actionBtn5()">Soon</button>
+        <button class="btn" onclick="spooferfivem()">Spoofer Fivem</button>
     </div>
 
     <div>
@@ -302,6 +303,11 @@ html_content = """
     <div class="credit" id="creditid">
         <p>©Lafraude 2025</p>
     </div>
+
+    <div class="spoofer" id="spooferid">
+        <button id="btn" onclick="spooferdeclenchement()">Spoofer</button>
+    </div>
+
     <script>
 
         setTimeout(() => {
@@ -339,6 +345,11 @@ html_content = """
             pywebview.api.clear_mods();  // Appel à la fonction Python 
         }
 
+        function spooferdeclenchement()
+        {
+            pywebview.api.spoofer_declenchement();  // Appel à la fonction Python 
+        }
+
         window.onload = function() 
         {
             var homediv = document.getElementById("divpackid");
@@ -353,6 +364,7 @@ html_content = """
             var creditid = document.getElementById("creditid");
             var titlehome = document.getElementById("titlehome");
             var console = document.getElementById("console");
+            var spooferid = document.getElementById("spooferid");
 
             if (Math.random() < 0) {
                 packreadiv.style.setProperty("display", "block");
@@ -415,6 +427,11 @@ html_content = """
                 console.style.setProperty("display", "block", "important");
             } else {
                 console.style.setProperty("display", "none", "important");
+            }
+            if (Math.random() < 0) {
+                spooferid.style.setProperty("display", "block", "important");
+            } else {
+                spooferid.style.setProperty("display", "none", "important");
             }
         };
 
@@ -653,6 +670,35 @@ html_content = """
 
         refreshFavoris();
     });
+
+    function spooferfivem()
+    {
+        var divpack = document.getElementById("divpackid");
+        var packreadiv = document.getElementById("packrealistefivemid");
+        var packgf = document.getElementById("packgunfightfivemid");
+        var homeid = document.getElementById("homeid")
+        var navbar = document.getElementById("navbar");
+        var commingsoonid = document.getElementById("commingsoonid");
+        var favorislist = document.getElementById("favoris-list");
+        var titlehome = document.getElementById("titlehome");
+        var console = document.getElementById("console");
+        var creditid = document.getElementById("creditid");
+        var spooferid = document.getElementById("spooferid");
+
+        packreadiv.style.setProperty("display", "none", "important");
+        packgf.style.setProperty("display", "none", "important");
+        divpack.style.display = "none";
+        homeid.style.display = "none"
+        navbar.style.display = "none";
+        commingsoonid.style.display = "none";
+        favorislist.style.display = "none";
+        titlehome.style.display = "none";
+        console.style.display = "none";
+        creditid.style.display = "none";
+        spooferid.style.display = "block";
+        document.getElementById("favoris-section").style.display = "none";
+    }
+
     </script>
 </body>
 </html>
@@ -665,6 +711,10 @@ with open(html_file_path, "w") as file:
 class Api:
     def __init__(self):
         self.config = self.load_config()
+
+    def spoofer_declenchement(self):
+        clear_digital_entitlements()
+        toaster.show_toast("Multi Tools Fivem", "✅ Confirmation, vous avez était spoof avec succès", icon_path=icon_path, duration=5)
 
     def clear_cache(self):
         supprimer_cache()
