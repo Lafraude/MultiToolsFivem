@@ -714,7 +714,7 @@ class Api:
 
     def spoofer_declenchement(self):
         clear_digital_entitlements()
-        toaster.show_toast("Multi Tools Fivem", "✅ Confirmation, vous avez était spoof avec succès", icon_path=icon_path, duration=5)
+        toaster.show_toast("Multi Tools Fivem", "✅ Confirmation, vous avez été spoof avec succès", icon_path=icon_path, duration=5)
 
     def clear_cache(self):
         supprimer_cache()
