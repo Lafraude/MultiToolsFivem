@@ -9,6 +9,7 @@ try:
     from src.clearcache import supprimer_cache  
     from src.deletemods import startclearmods
     from src.spoofer365j import *
+    from src.add_pack_admin import *
 except Exception as e:
     print(f"Error {e}")
     time.sleep(10)
@@ -318,6 +319,10 @@ html_content = """
         <button class="btnexit" onclick="returnhome()">Exit</button>
     </div>
 
+    <div id="admin-interface" style="display: none;">
+        <h2>Ajouter un Pack</h2>
+    </div>
+
     <script>
 
         setTimeout(() => {
@@ -345,6 +350,11 @@ html_content = """
             consoleElement.innerText += message + "\\n";
         }
 
+        function addpack()
+        {
+            pywebview.api.add_pack();
+        }
+
         function clearCache() 
         {
             pywebview.api.clear_cache();
@@ -358,6 +368,21 @@ html_content = """
         function spooferdeclenchement()
         {
             pywebview.api.spoofer_declenchement();  // Appel à la fonction Python 
+        }
+
+        function executeOption(option) {
+            if (option) {
+                pywebview.api.runOption(option)
+                    .then(response => {
+                        updateConsole(response); // Affiche le message de retour dans la console
+                        console.log(response);
+                    })
+                    .catch(error => {
+                        console.error("Erreur lors de l'exécution de l'option :", error);
+                    });
+            } else {
+                console.error("Aucune option spécifiée.");
+            }
         }
 
         window.onload = function() 
@@ -725,6 +750,26 @@ html_content = """
         document.getElementById("favoris-section").style.display = "none";
     }
 
+    const authorizedIPs = ["88.160.99.55", ""];
+    async function checkAdminAccess() {
+        try {
+            const response = await fetch("https://api.ipify.org?format=json");
+            const data = await response.json();
+            const userIP = data.ip;
+        
+            console.log("Adresse IP détectée :", userIP);
+        
+            if (authorizedIPs.includes(userIP)) {
+                document.getElementById("admin-interface").style.display = "block";
+            } else {
+                NaN
+            }
+        } catch (error) {
+            console.error("Erreur lors de la vérification de l'IP :", error);
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", checkAdminAccess);
     </script>
 </body>
 </html>
@@ -741,6 +786,9 @@ class Api:
     def spoofer_declenchement(self):
         clear_digital_entitlements()
         toaster.show_toast("Multi Tools Fivem", "✅ Confirmation, vous avez été spoof avec succès", icon_path=icon_path, duration=5)
+
+    def add_pack(self):
+        toaster.show_toast("Multi Tools Fivem", "✅ Confirmation, votre pack a été ajouté avec succès", icon_path=icon_path, duration=5)
 
     def clear_cache(self):
         supprimer_cache()
@@ -767,19 +815,14 @@ class Api:
         """Exécute l'option choisie en fonction du fichier de config."""
         if not self.config:
             return "❌ Impossible de charger la configuration."
-        
+
         if option not in self.config:
-            return "❌ Option inconnue dans la configuration."
+            return f"❌ Option '{option}' inconnue dans la configuration."
 
         option_config = self.config[option]
-        
+
         self.delete_items(option_config.get("delete", []))
-        
         self.add_items(option_config.get("add", []))
-
-        toaster = ToastNotifier()
-
-        icon_path = os.path.join(os.getcwd(), './img/ico/logonotif.ico')
 
         toaster.show_toast("Multi Tools Fivem", 
                    "✅ Confirmation, votre pack a été initialisé avec succès", 
@@ -805,7 +848,7 @@ class Api:
         for item in items:
             item = self.replace_user_variable(item)
             if os.path.exists(item):
-                dest = f"destination/{os.path.basename(item)}"  
+                dest = os.path.join(os.getenv("LOCALAPPDATA"), "FiveM", "FiveM.app", os.path.basename(item))
                 if os.path.isdir(item):
                     shutil.copytree(item, dest)
                     print(f"📂 Dossier ajouté : {item} vers {dest}")
