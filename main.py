@@ -44,13 +44,13 @@ html_content = """
             --button-hover: #3b82f6;
             --console-bg: #0f172a;
         }
-      
+
         @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
+
         .loading {
             font-size: 100px;
             display: flex;
@@ -200,8 +200,9 @@ html_content = """
 
     <div>
         <nav id="navbar" class="navbar">
-            <img class="imgnavbar" onclick="returnhome()" src="/img/200w.gif" alt="" >
+            <img class="imgnavbar" onclick="returnhome()" src="/img/200w.gif" alt="">
             <ul>
+                <input type="text" id="searchBar" class="search-bar" placeholder="Rechercher..." oninput="filterDivs()">
                 <button class="btnnav" onclick="returnhome()">Home</button>
                 <button class="btnnav" onclick="packrealistefivem()">Pack Réaliste</button> 
                 <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
@@ -215,21 +216,25 @@ html_content = """
     <div id="packrealistefivemid" class="packrealistefivem">
         <h2 class="titlepack">Pack Réaliste</h2>
         <div data-id="packrealiste-option1">
+            <h4>Pack 1</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packrealiste-option2">
+            <h4>Pack 2</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packrealiste-option3">
+            <h4>Pack 3</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packrealiste-option4">
+            <h4>Pack 4</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
             <button class="btnF">Ajouter en favori</button>
@@ -239,21 +244,25 @@ html_content = """
     <div id="packgunfightfivemid" class="packgunfight">
         <h2 class="titlepack">Pack GunFight</h2>
         <div data-id="packgunfight-option1">
+            <h4>Pack 1</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packgunfight-option2">
+            <h4>Pack 2</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packgunfight-option3">
+            <h4>Pack 3</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packgunfight-option4">
+            <h4>Pack 4</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
             <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
             <button class="btnF">Ajouter en favori</button>
@@ -305,7 +314,8 @@ html_content = """
     </div>
 
     <div class="spoofer" id="spooferid">
-        <button id="btn" onclick="spooferdeclenchement()">Spoofer</button>
+        <button class="btn" onclick="spooferdeclenchement()">Spoofer 365j</button>
+        <button class="btnexit" onclick="returnhome()">Exit</button>
     </div>
 
     <script>
@@ -496,6 +506,7 @@ html_content = """
             var navbar = document.getElementById("navbar");
             var commingsoonid = document.getElementById("commingsoonid");
             var favorislist = document.getElementById("favoris-list");
+            var spooferid = document.getElementById("spooferid");
 
 
             homediv.style.display = "block";
@@ -506,6 +517,7 @@ html_content = """
             navbar.style.display = "none";
             commingsoonid.style.display = "none";
             favorislist.style.display = "none";
+            spooferid.style.display = "none";
 
 
             packreadiv.style.setProperty("display", "none", "important");
@@ -670,6 +682,20 @@ html_content = """
 
         refreshFavoris();
     });
+
+    function filterDivs() {
+        const searchTerm = document.getElementById("searchBar").value.toLowerCase();
+        const divs = document.querySelectorAll("[data-id]");
+
+        divs.forEach(div => {
+            const title = div.querySelector("h4")?.textContent.toLowerCase() || "";
+            if (title.includes(searchTerm)) {
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+        });
+    }
 
     function spooferfivem()
     {
