@@ -750,24 +750,24 @@ html_content = """
         document.getElementById("favoris-section").style.display = "none";
     }
 
-    const authorizedIPs = ["88.160.99.55", ""];
-    async function checkAdminAccess() {
-        try {
-            const response = await fetch("https://api.ipify.org?format=json");
-            const data = await response.json();
-            const userIP = data.ip;
+    // const authorizedIPs = ["", ""];
+    // async function checkAdminAccess() {
+    //     try {
+    //         const response = await fetch("https://api.ipify.org?format=json");
+    //         const data = await response.json();
+    //         const userIP = data.ip;
         
-            console.log("Adresse IP détectée :", userIP);
+    //         console.log("Adresse IP détectée :", userIP);
         
-            if (authorizedIPs.includes(userIP)) {
-                document.getElementById("admin-interface").style.display = "block";
-            } else {
-                NaN
-            }
-        } catch (error) {
-            console.error("Erreur lors de la vérification de l'IP :", error);
-        }
-    }
+    //         if (authorizedIPs.includes(userIP)) {
+    //             document.getElementById("admin-interface").style.display = "block";
+    //         } else {
+    //             NaN
+    //         }
+    //     } catch (error) {
+    //         console.error("Erreur lors de la vérification de l'IP :", error);
+    //     }
+    // }
     
     document.addEventListener("DOMContentLoaded", checkAdminAccess);
     </script>

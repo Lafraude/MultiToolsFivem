@@ -1,7 +1,7 @@
 {
   "option1": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
-    "add": ["D:\\testtes\\mods", ""]
+    "add": [".\\package\\packfivemrea\\packoption1\\mods", ""]
   },
   "option2": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
