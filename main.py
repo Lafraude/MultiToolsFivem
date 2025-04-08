@@ -36,6 +36,11 @@ html_content = """
         &::-webkit-scrollbar {
           display: none;
         }
+
+        #console::-webkit-scrollbar {
+          display: none;
+        }
+
         :root {
             --primary-bg: #000000;      
             --secondary-bg: #0f172a;    
@@ -176,6 +181,14 @@ html_content = """
         #creditid{
             color: var(--text-color);
         }
+
+        .imgstart {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            border-radius: 50%;
+            animation: fadeInUp 1.5s ease;
+        }
         
       </style>
 
@@ -188,6 +201,7 @@ html_content = """
         <span>.</span>
     </div>
 
+    <img class="imgstart" id="imgstartid" src="img/logo.jpg" alt="">
     <h1 id="titlehome">Bienvenue</h1>
     <iframe class="srcdiscordjoin" id="srcdiscordjoinid" src="https://discord.com/widget?id=1353365571369963643&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     <button class="btnexit" id="btnexitid" onclick="widgetdiscordclose()">Exit</button>
@@ -201,7 +215,7 @@ html_content = """
 
     <div>
         <nav id="navbar" class="navbar">
-            <img class="imgnavbar" onclick="returnhome()" src="/img/200w.gif" alt="">
+            <img class="imgnavbar" onclick="returnhome()" src="/img/logo.jpg" alt="">
             <ul>
                 <input type="text" id="searchBar" class="search-bar" placeholder="Rechercher..." oninput="filterDivs()">
                 <button class="btnnav" onclick="returnhome()">Home</button>
@@ -331,6 +345,7 @@ html_content = """
             const titlehome = document.getElementById('titlehome');
             const creditid = document.getElementById('creditid');
             const console = document.getElementById('console');
+            const imgstartid = document.getElementById('imgstartid');
 
             if (loading && message) {
                 loading.style.display = 'none';
@@ -338,6 +353,7 @@ html_content = """
                 titlehome.style.display = 'block';
                 creditid.style.display = 'block';
                 console.style.display = 'block';
+                imgstartid.style.display = 'block';
                 setTimeout(() => {
                     message.style.opacity = '1';
                 }, 100);
@@ -400,6 +416,7 @@ html_content = """
             var titlehome = document.getElementById("titlehome");
             var console = document.getElementById("console");
             var spooferid = document.getElementById("spooferid");
+            var imgstartid = document.getElementById("imgstartid");
 
             if (Math.random() < 0) {
                 packreadiv.style.setProperty("display", "block");
@@ -468,6 +485,11 @@ html_content = """
             } else {
                 spooferid.style.setProperty("display", "none", "important");
             }
+            if (Math.random() < 0) {
+                imgstartid.style.setProperty("display", "block", "important");
+            } else {
+                imgstartid.style.setProperty("display", "none", "important");
+            }
         };
 
         function widgetdiscord()
@@ -476,10 +498,12 @@ html_content = """
             var homeid = document.getElementById("homeid");
             var console = document.getElementById("console");
             var btnexitid = document.getElementById("btnexitid");
+            var imgstartid = document.getElementById("imgstartid");
 
             srcdiscordjoinid.style.display = "block";
             homeid.style.display = "none";
             console.style.display = "none";
+            imgstartid.style.display = "none";
             btnexitid.style.display = "block";
 
         }
@@ -491,12 +515,14 @@ html_content = """
             var console = document.getElementById("console");
             var btnexitid = document.getElementById("btnexitid");
             var commingsoonid = document.getElementById("commingsoonid");
+            var imgstartid = document.getElementById("imgstartid");
 
             srcdiscordjoinid.style.display = "none";
             homeid.style.display = "block";
             console.style.display = "block";
             btnexitid.style.display = "none";
             commingsoonid.style.display = "none";
+            imgstartid.style.display = "block";
         }
 
         function packFivem() 
@@ -508,6 +534,7 @@ html_content = """
                 var creditid = document.getElementById("creditid");
                 var divpack = document.getElementById("divpackid");
                 var favorislist = document.getElementById("favoris-list");
+                var imgstartid = document.getElementById("imgstartid");
 
                 homediv.style.display = "none";
                 consolediv.style.display = "none";
@@ -515,6 +542,7 @@ html_content = """
                 creditid.style.display = "none";
                 divpack.style.display = "block";
                 favorislist.style.display = "none";
+                imgstartid.style.display = "none";
 
             })
         }
@@ -532,6 +560,7 @@ html_content = """
             var commingsoonid = document.getElementById("commingsoonid");
             var favorislist = document.getElementById("favoris-list");
             var spooferid = document.getElementById("spooferid");
+            var imgstartid = document.getElementById("imgstartid");
 
 
             homediv.style.display = "block";
@@ -543,6 +572,7 @@ html_content = """
             commingsoonid.style.display = "none";
             favorislist.style.display = "none";
             spooferid.style.display = "none";
+            imgstartid.style.display = "block";
 
 
             packreadiv.style.setProperty("display", "none", "important");
