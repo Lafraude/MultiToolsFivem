@@ -41,7 +41,7 @@ def updateConsole(message):
                 const consoleElement = document.getElementById('console');
                 if (consoleElement) {{
                     consoleElement.innerText += `{message}\\n`;
-                    consoleElement.scrollTop = consoleElement.scrollHeight;  // Scroll automatique vers le bas
+                    consoleElement.scrollTop = consoleElement.scrollHeight;
                 }}
             """)
         else:

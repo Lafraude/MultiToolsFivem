@@ -35,23 +35,37 @@
 
 #packrealistefivemid > div {    
     margin-left: 175px;
+    margin-top: 20px;
     color: var(--text-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 250px;
-    height: 385px;
+    height: 310px;
     background-color: #0f172a;
     transition: 0.5s;
 }
 
 #packgunfightfivemid > div {
     margin-left: 175px;
+    margin-top: 20px;
     color: var(--text-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 250px;
-    height: 385px;
+    height: 310px;
     background-color: #0f172a;
+    transition: 0.5s;
+}
+
+#packgunfightfivemid > div > img {
+    height: 40%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#packrealistefivemid > div > img {
+    height: 40%;
+    border-radius: 10px;
     transition: 0.5s;
 }
 
@@ -134,7 +148,7 @@
     animation: comingsoon 1.5s infinite;
 }
 
-.item {
+/* .item {
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -143,4 +157,30 @@
 }
 .favori {
     background-color: yellow;
+} */
+
+
+/* Popup container */
+.image-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999999999999;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Popup image */
+.image-popup img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 20px;
+}
+
+/* Images non agrandissables */
+.no-zoom {
+    cursor: not-allowed;
+    opacity: 0.7;
 }

@@ -103,6 +103,7 @@
             padding: 15px 30px;
             font-size: 16px;
             border-radius: 40px;
+            margin-top: 10px;
             cursor: pointer;
             margin-inline: 5px;
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -178,6 +179,10 @@
         <span>.</span>
     </div>
 
+    <div id="image-popup" class="image-popup">
+        <img id="popup-image" src="" alt="Popup Image">
+    </div>
+
     <img class="imgstart" id="imgstartid" src="img/logo.jpg" alt="">
     <h1 id="titlehome">Bienvenue</h1>
     <iframe class="srcdiscordjoin" id="srcdiscordjoinid" src="https://discord.com/widget?id=1353365571369963643&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
@@ -237,8 +242,8 @@
         <h2 class="titlepack">Pack GunFight</h2>
         <div data-id="packgunfight-option1">
             <h4>Pack 1</h4>
-            <img class="packreaimg" src="img/200w.gif" alt="">
-            <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+            <img class="zoomable" src="package/packfivemgf/packneigeafgby77/packneigeafgby77.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf1')">Activer le pack</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packgunfight-option2">
@@ -355,19 +360,19 @@
 
         function clearMods() 
         {
-            pywebview.api.clear_mods();  // Appel à la fonction Python 
+            pywebview.api.clear_mods();  // Appel à la fonction Python
         }
 
         function spooferdeclenchement()
         {
-            pywebview.api.spoofer_declenchement();  // Appel à la fonction Python 
+            pywebview.api.spoofer_declenchement();
         }
 
         function executeOption(option) {
             if (option) {
                 pywebview.api.runOption(option)
                     .then(response => {
-                        updateConsole(response); // Affiche le message de retour dans la console
+                        updateConsole(response);
                         console.log(response);
                     })
                     .catch(error => {
@@ -756,6 +761,27 @@
         spooferid.style.display = "block";
         document.getElementById("favoris-section").style.display = "none";
     }
+
+    document.querySelectorAll("img.zoomable").forEach(img => {
+        img.addEventListener("click", (event) => {
+            const popup = document.getElementById("image-popup");
+            const popupImage = document.getElementById("popup-image");
+
+            popupImage.src = event.target.src;
+            popup.style.display = "block";
+        });
+    });
+
+    document.getElementById("image-popup").addEventListener("click", () => {
+        const popup = document.getElementById("image-popup");
+        popup.style.display = "none"; 
+    });
+
+    document.querySelectorAll("img.no-zoom").forEach(img => {
+        img.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    });
 
     // const authorizedIPs = ["", ""];
     // async function checkAdminAccess() {

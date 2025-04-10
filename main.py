@@ -260,8 +260,8 @@ html_content = """
         <h2 class="titlepack">Pack GunFight</h2>
         <div data-id="packgunfight-option1">
             <h4>Pack 1</h4>
-            <img class="packreaimg" src="img/200w.gif" alt="">
-            <button class="btn" onclick="executeOption('option1')">Exécuter Option 1</button>
+            <img class="packreaimg" src="package/packfivemgf/packneigeafgby77/packneigeafgby77.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf1')">Activer le pack</button>
             <button class="btnF">Ajouter en favori</button>
         </div>
         <div data-id="packgunfight-option2">
@@ -378,19 +378,19 @@ html_content = """
 
         function clearMods() 
         {
-            pywebview.api.clear_mods();  // Appel à la fonction Python 
+            pywebview.api.clear_mods();  // Appel à la fonction Python
         }
 
         function spooferdeclenchement()
         {
-            pywebview.api.spoofer_declenchement();  // Appel à la fonction Python 
+            pywebview.api.spoofer_declenchement();
         }
 
         function executeOption(option) {
             if (option) {
                 pywebview.api.runOption(option)
                     .then(response => {
-                        updateConsole(response); // Affiche le message de retour dans la console
+                        updateConsole(response);
                         console.log(response);
                     })
                     .catch(error => {

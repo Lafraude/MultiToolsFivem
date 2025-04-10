@@ -1,7 +1,7 @@
 {
-  "option1": {
+  "optiongf1": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
-    "add": [".\\package\\packfivemrea\\packoption1\\mods", ""]
+    "add": [".\\package\\packfivemgf\\packneigeafgby77\\citizen", ""]
   },
   "option2": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
