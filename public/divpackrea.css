@@ -14,7 +14,7 @@
     top: 0;
     left: 57%;
     transform: translateX(-57%);
-    margin-top: 20px; /* Optionnel pour ajuster l'espacement */
+    margin-top: 20px;
 }
 
 #packgunfightfivemid{
@@ -40,7 +40,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 250px;
-    height: 310px;
+    height: 320px;
     background-color: #0f172a;
     transition: 0.5s;
 }
@@ -52,7 +52,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 250px;
-    height: 310px;
+    height: 350px;
     background-color: #0f172a;
     transition: 0.5s;
 }

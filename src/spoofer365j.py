@@ -9,7 +9,7 @@ def clear_digital_entitlements():
             item_path = os.path.join(folder_path, item)
             try:
                 if os.path.isfile(item_path) or os.path.islink(item_path):
-                    os.unlink(item_path) 
+                    os.unlink(item_path)
                 elif os.path.isdir(item_path):
                     shutil.rmtree(item_path) 
             except Exception as e:

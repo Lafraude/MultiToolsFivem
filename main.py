@@ -126,6 +126,7 @@ html_content = """
             padding: 15px 30px;
             font-size: 16px;
             border-radius: 40px;
+            margin-top: 10px;
             cursor: pointer;
             margin-inline: 5px;
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -201,6 +202,10 @@ html_content = """
         <span>.</span>
     </div>
 
+    <div id="image-popup" class="image-popup">
+        <img id="popup-image" src="" alt="Popup Image">
+    </div>
+
     <img class="imgstart" id="imgstartid" src="img/logo.jpg" alt="">
     <h1 id="titlehome">Bienvenue</h1>
     <iframe class="srcdiscordjoin" id="srcdiscordjoinid" src="https://discord.com/widget?id=1353365571369963643&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
@@ -259,28 +264,53 @@ html_content = """
     <div id="packgunfightfivemid" class="packgunfight">
         <h2 class="titlepack">Pack GunFight</h2>
         <div data-id="packgunfight-option1">
-            <h4>Pack 1</h4>
-            <img class="packreaimg" src="package/packfivemgf/packneigeafgby77/packneigeafgby77.png" alt="">
+            <h4>PACK NEIGE AFG by 77</h4>
+            <img class="zoomable" src="package/packfivemgf/packneigeafgby77/packneigeafgby77.png" alt="">
             <button class="btn" onclick="executeOption('optiongf1')">Activer le pack</button>
             <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option2">
-            <h4>Pack 2</h4>
-            <img class="packreaimg" src="img/200w.gif" alt="">
-            <button class="btn" onclick="executeOption('option2')">Exécuter Option 2</button>
+            <h4>Pack Neige Legit VNY</h4>
+            <img class="zoomable" src="package/packfivemgf/packneigelegitvny/packneigelegitvny.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf2')">Activer le pack</button>
             <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option3">
-            <h4>Pack 3</h4>
-            <img class="packreaimg" src="img/200w.gif" alt="">
-            <button class="btn" onclick="executeOption('option3')">Exécuter Option 3</button>
+            <h4>EL VioJeNe Neige</h4>
+            <img class="zoomable" src="package/packfivemgf/elviojeneneige/elviojeneneige.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf3')">Activer le pack</button>
             <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option4">
-            <h4>Pack 4</h4>
-            <img class="packreaimg" src="img/200w.gif" alt="">
-            <button class="btn" onclick="executeOption('option4')">Exécuter Option 4</button>
+            <h4>HooverXNeige</h4>
+            <img class="zoomable" src="package/packfivemgf/hooverxneige/HooverXNeige.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf4')">Activer le pack</button>
             <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
+        </div>
+        <div data-id="packgunfight-option5">
+            <h4>Baby Data</h4>
+            <img class="zoomable" src="package/packfivemgf/babydata/babydata.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf5')">Activer le pack</button>
+            <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
+        </div>
+        <div data-id="packgunfight-option6">
+            <h4>Vaniya Citron</h4>
+            <img class="zoomable" src="package/packfivemgf/vaniyacitron/vaniyacitron.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf6')">Activer le pack</button>
+            <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
+        </div>
+        <div data-id="packgunfight-option7">
+            <h4>BBL</h4>
+            <img class="zoomable" src="package/packfivemgf/bbl/bbl.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf7')">Activer le pack</button>
+            <button class="btnF">Ajouter en favori</button>
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
     </div>
 
@@ -779,6 +809,27 @@ html_content = """
         spooferid.style.display = "block";
         document.getElementById("favoris-section").style.display = "none";
     }
+
+    document.querySelectorAll("img.zoomable").forEach(img => {
+        img.addEventListener("click", (event) => {
+            const popup = document.getElementById("image-popup");
+            const popupImage = document.getElementById("popup-image");
+
+            popupImage.src = event.target.src;
+            popup.style.display = "block";
+        });
+    });
+
+    document.getElementById("image-popup").addEventListener("click", () => {
+        const popup = document.getElementById("image-popup");
+        popup.style.display = "none"; 
+    });
+
+    document.querySelectorAll("img.no-zoom").forEach(img => {
+        img.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    });
 
     // const authorizedIPs = ["", ""];
     // async function checkAdminAccess() {

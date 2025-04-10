@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+Ptitfaa
+<rage__ptxgpuDropEmitterSettings>
+  <boxCentreOffset x="0.000000" y="0.000000" z="0.000000" />
+  <boxSize x="0" y="0" z="0" />
+  <lifeMinMax x="0" y="0" />
+  <velocityMin x="0.000000" y="0.000000" z="0.000000" />
+  <velocityMax x="0.000000" y="0.000000" z="0.000000" />
+  <clampToGround value="false" />
+</rage__ptxgpuDropEmitterSettings>

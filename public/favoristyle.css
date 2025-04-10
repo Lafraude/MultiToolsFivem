@@ -57,6 +57,7 @@
 .btnF
 {
     margin-top: 10px;
+    margin-bottom: -20px;
     background-color: #FFC107; 
     color: white;
     border: none;

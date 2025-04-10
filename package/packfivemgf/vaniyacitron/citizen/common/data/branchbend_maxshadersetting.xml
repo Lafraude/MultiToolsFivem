@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ ██████╗████████╗ █████╗     ███████╗              ██████╗ ███████╗██████╗ ██╗   ██╗██╗  ██╗
+██╔════╝╚══██╔══╝██╔══██╗    ██╔════╝              ██╔══██╗██╔════╝██╔══██╗██║   ██║╚██╗██╔╝
+██║  ███╗  ██║   ███████║    ███████╗    █████╗    ██████╔╝█████╗  ██║  ██║██║   ██║ ╚███╔╝ 
+██║   ██║  ██║   ██╔══██║    ╚════██║    ╚════╝    ██╔══██╗██╔══╝  ██║  ██║██║   ██║ ██╔██╗ 
+╚██████╔╝  ██║   ██║  ██║    ███████║              ██║  ██║███████╗██████╔╝╚██████╔╝██╔╝ ██╗
+ ╚═════╝   ╚═╝   ╚═╝  ╚═╝    ╚══════╝              ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+╔╗ ┬ ┬   ╦┌─┐┌─┐┬ ┬  ╦═╗┌─┐┌┬┐┬┌┬┐┌─┐
+╠╩╗└┬┘   ║│ │└─┐├─┤  ╠╦╝│ │││││ │ │ │
+╚═╝ ┴   ╚╝└─┘└─┘┴ ┴  ╩╚═└─┘┴ ┴┴ ┴ └─┘
+DO NOT RE-UPLOAD,MODIFY, EDIT, 
+OR USE THESE FILES IN YOUR OWN MODS WITHOUT MY PERMISSION. 
+THIS PROJECT IS EXCLUSIVE TO GTA5REDUX.COM                                                                                           
+																						   -->
+<CCustomShaderEffectTree__BRANCH_BEND_AND_TRI_WAVE_MICRO_MOVEMENTS_LOCALS>
+  <PivotHeight value="3.150000" />
+  <TrunkStiffnessAdjustLow value="20.876413" />
+  <TrunkStiffnessAdjustHigh value="9.864650" />
+  <PhaseStiffnessAdjustLow value="3.216660" />
+  <PhaseStiffnessAdjustHigh value="15.0466660" />
+  <BasisWaves>
+    <Item>
+      <lowWind>
+        <freqAndAmp x="0.001310" y="0.001200" />
+      </lowWind>
+      <highWind>
+        <freqAndAmp x="0.008760" y="0.008870" />
+      </highWind>
+    </Item>
+    <Item>
+      <lowWind>
+        <freqAndAmp x="0.003113" y="0.001555" />
+      </lowWind>
+      <highWind>
+        <freqAndAmp x="0.001125" y="0.005550" />
+      </highWind>
+    </Item>
+    <Item>
+      <lowWind>
+        <freqAndAmp x="0.001125" y="0.003151" />
+      </lowWind>
+      <highWind>
+        <freqAndAmp x="0.001555" y="0.001155" />
+      </highWind>
+    </Item>
+  </BasisWaves>
+</CCustomShaderEffectTree__BRANCH_BEND_AND_TRI_WAVE_MICRO_MOVEMENTS_LOCALS>

@@ -1,0 +1,55 @@
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <CContentsOfWeatherXmlFile>
+  <VersionNumber value="1.000000"/>
+  <WeatherGpuFx>
+  </WeatherGpuFx>
+  <WeatherTypes>
+	<Item>
+	<Name>XMAS</Name>
+  <Sun value="0"/>
+	<Cloud value="0"/>
+	<WindMin value="0"/>
+	<WindMax value="0"/>
+	<Rain value="0"/>
+	<Wetness value="0"/>
+	<Snow value="0"/>
+  <SnowMist value="0"/>
+	<Fog value="0"/>
+  <RippleBumpiness value="0" />
+  <RippleMinBumpiness value="0" />
+  <RippleMaxBumpiness value="0" />
+  <RippleBumpinessWindScale value="0" />
+  <RippleScale value="0" />
+  <RippleSpeed value="0" />
+  <RippleVelocityTransfer value="0" />
+  <OceanBumpiness value="0" />
+  <DeepOceanScale value="0" />
+  <OceanNoiseMinAmplitude value="0" />
+  <OceanWaveAmplitude value="0" />
+  <ShoreWaveAmplitude value="0" />
+  <OceanWaveWindScale value="0" />
+  <ShoreWaveWindScale value="0" />
+  <OceanWaveMinAmplitude value="0" />
+  <ShoreWaveMinAmplitude value="0" />
+  <OceanWaveMaxAmplitude value="0" />
+  <ShoreWaveMaxAmplitude value="0" />
+  <OceanFoamIntensity value="0" />
+  <OceanFoamScale value="0" />
+  <RippleDisturb value="0" />
+  <Lightning value="false"/>
+	<Sandstorm value="false"/>
+	<DropSettingName></DropSettingName>
+	<MistSettingName></MistSettingName>
+	<GroundSettingName></GroundSettingName>
+  <TimeCycleFilename>COMMON:/DATA/TIMECYCLE/vaniya.xml</TimeCycleFilename>
+	<CloudSettingsName>CLOUDY</CloudSettingsName>
+  </Item>
+  </WeatherTypes>
+  <WeatherCycles>
+  <Item>
+  <CycleName>XMAS</CycleName>
+  <TimeMult value="1" />
+  </Item>
+  </WeatherCycles>
+  </CContentsOfWeatherXmlFile>
