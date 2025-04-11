@@ -196,6 +196,8 @@ html_content = """
 </head>
 <body>
 
+    <canvas id="particle-canvas"></canvas>
+
     <div class="loading" id="loadingid">
         <span>.</span>
         <span>.</span>
@@ -229,7 +231,7 @@ html_content = """
                 <button class="btnnav" onclick="packsonfivem()">Pack Son</button> 
                 <button class="btnnav" onclick="modsfivem()">Mods Fivem</button>
                 <button class="btnnav" onclick="showFavoris()">Favoris</button>
-                <button class="btnexit" onclick="returnhome()">Exit</button>
+                <!-- <button class="btnexit" onclick="returnhome()">Exit</button> -->
             </ul>
         </nav>
     </div>
@@ -830,6 +832,101 @@ html_content = """
             event.stopPropagation();
         });
     });
+
+    const canvas = document.getElementById("particle-canvas");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    const colors = ["#000000", "#0f172a", "#1e3a8a", "#3b82f6"]; // Couleurs du background
+    
+    // Redimensionner le canvas si la fenêtre change de taille
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        initParticles(); // Réinitialiser les particules
+    });
+    
+    // Classe pour les particules
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 2 + 0.5; // Particules plus petites
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.speedX = Math.random() * 0.5 - 0.25; // Déplacement lent
+            this.speedY = Math.random() * 0.5 - 0.25;
+        }
+    
+        update(mouse) {
+            // Déplacement des particules
+            this.x += this.speedX;
+            this.y += this.speedY;
+        
+            // Interaction avec le curseur
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 100) {
+                const forceDirectionX = dx / distance;
+                const forceDirectionY = dy / distance;
+                const maxDistance = 100;
+                const force = (maxDistance - distance) / maxDistance; // Force inversement proportionnelle à la distance
+                const directionX = forceDirectionX * force * 5; // Ajuster la force
+                const directionY = forceDirectionY * force * 5;
+            
+                this.x += directionX;
+                this.y += directionY;
+            }
+        
+            // Réinitialiser si la particule sort de l'écran
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+            }
+        }
+    
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+    
+    // Initialiser les particules
+    function initParticles() {
+        particles.length = 0; // Réinitialiser le tableau
+        const particleCount = 300; // Augmenter le nombre de particules
+        for (let i = 0; i < particleCount; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            particles.push(new Particle(x, y));
+        }
+    }
+    
+    // Animer les particules
+    function animateParticles(mouse) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle) => {
+            particle.update(mouse);
+            particle.draw();
+        });
+        requestAnimationFrame(() => animateParticles(mouse));
+    }
+    
+    // Suivi du curseur
+    const mouse = { x: canvas.width / 2, y: canvas.height / 2 }; // Position initiale au centre
+    canvas.addEventListener("mousemove", (event) => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    });
+    
+    // Lancer l'animation
+    initParticles();
+    animateParticles(mouse);
 
     // const authorizedIPs = ["", ""];
     // async function checkAdminAccess() {
