@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi Tools Fivem</title>
+    <title>FIVPACK</title>
     <link rel="stylesheet" href="public/cagfivem.css">
     <link rel="stylesheet" href="public/divpackrea.css">
     <link rel="stylesheet" href="public/favoristyle.css">
@@ -208,13 +208,15 @@
                 <button class="btnnav" onclick="packgunfightfivem()">Pack GunFight</button>
                 <button class="btnnav" onclick="packsonfivem()">Pack Son</button> 
                 <button class="btnnav" onclick="modsfivem()">Mods Fivem</button>
-                <button class="btnnav" onclick="showFavoris()">Favoris</button>
+                <button class="btnnav" onclick="executeOption('optionviergepack')">Reset Pack</button>
+                <h6 class="messmodscontient">L'option Reset Pack vous remettra un citizen vierge et un dossier mods vierge</h6>
+                <!-- <button class="btnnav" onclick="showFavoris()">Favoris</button> -->
                 <!-- <button class="btnexit" onclick="returnhome()">Exit</button> -->
             </ul>
         </nav>
     </div>
     <div id="packrealistefivemid" class="packrealistefivem">
-        <h2 class="titlepack">Pack Réaliste</h2>
+        <!-- <h2 class="titlepack">Pack Réaliste</h2> -->
         <div data-id="packrealiste-option1">
             <h4>Pack 1</h4>
             <img class="packreaimg" src="img/200w.gif" alt="">
@@ -242,54 +244,68 @@
     </div>
     
     <div id="packgunfightfivemid" class="packgunfight">
-        <h2 class="titlepack">Pack GunFight</h2>
+        <!-- <h2 class="titlepack">Pack GunFight</h2> -->
         <div data-id="packgunfight-option1">
             <h4>PACK NEIGE AFG by 77</h4>
             <img class="zoomable" src="package/packfivemgf/packneigeafgby77/packneigeafgby77.png" alt="">
             <button class="btn" onclick="executeOption('optiongf1')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option2">
             <h4>Pack Neige Legit VNY</h4>
             <img class="zoomable" src="package/packfivemgf/packneigelegitvny/packneigelegitvny.png" alt="">
             <button class="btn" onclick="executeOption('optiongf2')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option3">
             <h4>EL VioJeNe Neige</h4>
             <img class="zoomable" src="package/packfivemgf/elviojeneneige/elviojeneneige.png" alt="">
             <button class="btn" onclick="executeOption('optiongf3')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option4">
             <h4>HooverXNeige</h4>
             <img class="zoomable" src="package/packfivemgf/hooverxneige/HooverXNeige.png" alt="">
             <button class="btn" onclick="executeOption('optiongf4')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option5">
             <h4>Baby Data</h4>
             <img class="zoomable" src="package/packfivemgf/babydata/babydata.png" alt="">
             <button class="btn" onclick="executeOption('optiongf5')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option6">
             <h4>Vaniya Citron</h4>
             <img class="zoomable" src="package/packfivemgf/vaniyacitron/vaniyacitron.png" alt="">
             <button class="btn" onclick="executeOption('optiongf6')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
         <div data-id="packgunfight-option7">
             <h4>BBL</h4>
             <img class="zoomable" src="package/packfivemgf/bbl/bbl.png" alt="">
             <button class="btn" onclick="executeOption('optiongf7')">Activer le pack</button>
-            <button class="btnF">Ajouter en favori</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
+            <h6>Source : .gg/EWKPJ7YAZF</h6>
+        </div>
+        <div class="packavecmods" data-id="packgunfight-option8">
+            <h4>Snowfall</h4>
+            <img class="zoomable" src="package/packfivemgf/snowfall/snowfall.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf8')">Activer le pack</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
+            <h6 class="messmodscontient">Attention, ce pack contient des mods suite à l'ajout du pack tous vos anciens mods vont être supprimés</h6>
+        </div>
+        <div data-id="packgunfight-option9">
+            <h4>Bleu FPS</h4>
+            <img class="zoomable" src="package/packfivemgf/bleufps/bleufps.png" alt="">
+            <button class="btn" onclick="executeOption('optiongf9')">Activer le pack</button>
+            <!-- <button class="btnF">Ajouter en favori</button> -->
             <h6>Source : .gg/EWKPJ7YAZF</h6>
         </div>
     </div>
@@ -813,59 +829,40 @@
 
     const canvas = document.getElementById("particle-canvas");
     const ctx = canvas.getContext("2d");
-    
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     const particles = [];
-    const colors = ["#000000", "#0f172a", "#1e3a8a", "#3b82f6"]; // Couleurs du background
-    
-    // Redimensionner le canvas si la fenêtre change de taille
+    const colors = ["#ffffff", "#3b82f6", "#1e3a8a"];
+
     window.addEventListener("resize", () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        initParticles(); // Réinitialiser les particules
+        initParticles();
     });
-    
+
     // Classe pour les particules
     class Particle {
         constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.size = Math.random() * 2 + 0.5; // Particules plus petites
+            this.x = x || Math.random() * canvas.width;
+            this.y = y || Math.random() * canvas.height;
+            this.size = Math.random() * 1 + 0.2; // Micro particule
             this.color = colors[Math.floor(Math.random() * colors.length)];
-            this.speedX = Math.random() * 0.5 - 0.25; // Déplacement lent
-            this.speedY = Math.random() * 0.5 - 0.25;
+            this.speedX = Math.random() * 0.2 - 0.1; // Déplacement très lent
+            this.speedY = Math.random() * 0.2 - 0.1;
         }
-    
-        update(mouse) {
-            // Déplacement des particules
+
+        update() {
             this.x += this.speedX;
             this.y += this.speedY;
-        
-            // Interaction avec le curseur
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 100) {
-                const forceDirectionX = dx / distance;
-                const forceDirectionY = dy / distance;
-                const maxDistance = 100;
-                const force = (maxDistance - distance) / maxDistance; // Force inversement proportionnelle à la distance
-                const directionX = forceDirectionX * force * 5; // Ajuster la force
-                const directionY = forceDirectionY * force * 5;
-            
-                this.x += directionX;
-                this.y += directionY;
-            }
-        
-            // Réinitialiser si la particule sort de l'écran
+
             if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
             }
         }
-    
+
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -873,38 +870,26 @@
             ctx.fill();
         }
     }
-    
-    // Initialiser les particules
+
     function initParticles() {
-        particles.length = 0; // Réinitialiser le tableau
-        const particleCount = 300; // Augmenter le nombre de particules
+        particles.length = 0; 
+        const particleCount = 500; // + de particules
         for (let i = 0; i < particleCount; i++) {
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
-            particles.push(new Particle(x, y));
+            particles.push(new Particle());
         }
     }
-    
-    // Animer les particules
-    function animateParticles(mouse) {
+
+    function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach((particle) => {
-            particle.update(mouse);
+            particle.update();
             particle.draw();
         });
-        requestAnimationFrame(() => animateParticles(mouse));
+        requestAnimationFrame(animateParticles);
     }
-    
-    // Suivi du curseur
-    const mouse = { x: canvas.width / 2, y: canvas.height / 2 }; // Position initiale au centre
-    canvas.addEventListener("mousemove", (event) => {
-        mouse.x = event.clientX;
-        mouse.y = event.clientY;
-    });
-    
-    // Lancer l'animation
+
     initParticles();
-    animateParticles(mouse);
+    animateParticles();
 
     // const authorizedIPs = ["", ""];
     // async function checkAdminAccess() {

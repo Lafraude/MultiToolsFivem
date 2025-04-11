@@ -1,4 +1,8 @@
 {
+  "optionviergepack": {
+    "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": [".\\package\\packvierge\\citizen", ".\\package\\packvierge\\mods"]
+  },
   "optiongf1": {
     "delete": ["", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
     "add": [".\\package\\packfivemgf\\packneigeafgby77\\citizen", ""]
@@ -30,6 +34,10 @@
   "optiongf8": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
     "add": [".\\package\\packfivemgf\\snowfall\\citizen", ".\\package\\packfivemgf\\snowfall\\mods"]
+  },
+  "optiongf9": {
+    "delete": ["", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": [".\\package\\packfivemgf\\bleufps\\citizen", ""]
   },
   "azeazeazeazeaeazeazeazeaeaeaeazeaze": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
