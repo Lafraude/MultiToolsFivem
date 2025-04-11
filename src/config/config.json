@@ -27,7 +27,11 @@
     "delete": ["", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
     "add": [".\\package\\packfivemgf\\bbl\\citizen", ""]
   },
-  "optiontg": {
+  "optiongf8": {
+    "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": [".\\package\\packfivemgf\\snowfall\\citizen", ".\\package\\packfivemgf\\snowfall\\mods"]
+  },
+  "azeazeazeazeaeazeazeazeaeaeaeazeaze": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
     "add": [".\\package\\packfivemgf\\    testtest   \\citizen", ""]
   }
