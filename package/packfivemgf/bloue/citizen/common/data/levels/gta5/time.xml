@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+BRAZILIAN PACK | SHADERS SQUAD | by zuras & zx
+DISCORD: discord.gg/shadersquad
+ -->
+<time_data version="1.000000" mode="dynamic">
+  <suninfo sun_roll="122" sun_yaw="0"/>
+  <mooninfo moon_roll="-10" moon_wobble_freq="2" moon_wobble_amp="0.2" moon_wobble_offset="0.375"/>
+  <sample name="12:00" hour="12" duration="4" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <sample name="12:00" hour="12" duration="0" uw_tc_mod="underwater"/>
+  <region name="URBAN"/>
+</time_data>

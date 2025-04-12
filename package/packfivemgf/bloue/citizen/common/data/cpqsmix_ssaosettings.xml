@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FADE PACK | SHADERS SQUAD | BY zuras
+SHADERS SQUAD: https://discord.com/shadersquad
+-->
+<CPQSMix_Parameters>
+  <CPRelativeStrength value="0.0" />
+  <QSRelativeStrength value="0.0" />
+  <QSFadeInStart value="0.0" />
+  <QSFadeInEnd value="0.0" />
+  <QSRadius value="0.0" />
+  <CPRadius value="0.0" />
+  <CPNormalOffset value="0.0" />
+</CPQSMix_Parameters>

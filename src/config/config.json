@@ -39,6 +39,10 @@
     "delete": ["", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
     "add": [".\\package\\packfivemgf\\bleufps\\citizen", ""]
   },
+  "optiongf10": {
+    "delete": ["", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
+    "add": [".\\package\\packfivemgf\\bloue\\citizen", ""]
+  },
   "azeazeazeazeaeazeazeazeaeaeaeazeaze": {
     "delete": ["C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\mods", "C:\\Users\\%USERNAME%\\AppData\\Local\\FiveM\\FiveM.app\\citizen"],
     "add": [".\\package\\packfivemgf\\    testtest   \\citizen", ""]
